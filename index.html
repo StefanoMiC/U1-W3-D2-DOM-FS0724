@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Traversing & Manipulation</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        header {
+            text-align: center;
+        }
+
+        header ul li {
+            display: inline-block;
+
+        }
+
+        header ul li:not(:last-child) {
+            margin-right: 10px;
+        }
+
+        main {
+            max-width: 900px;
+            margin-inline: auto;
+            text-align: center;
+        }
+
+        main article ul {
+            list-style: none;
+            padding-inline-start: 0;
+        }
+
+        main article ul li {
+            padding: 0.25rem 1rem;
+            background-color: lightgray;
+            margin-bottom: 0.25rem
+        }
+
+        footer {
+            background-color: rgb(20, 20, 20);
+            color: white;
+            padding: 2rem;
+        }
+
+        .bg-orange {
+            background-color: orange;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li>Home</li>
+                <li>Users</li>
+                <li>Contacts</li>
+                <li>Where to find</li>
+                <li>FAQ</li>
+            </ul>
+        </nav>
+    </header>
+    <main class="main-element">
+        <h1>Titolo principale</h1>
+        <p class="subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <article class="my-article">
+            <h3>Titolo dell'articolo</h3>
+            <img src="https://picsum.photos/600/450?q=1">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum laudantium ab cupiditate minus architecto
+                doloremque exercitationem eligendi sunt, quia facilis velit ipsum, reprehenderit suscipit maxime
+                voluptas enim tempore, itaque delectus!
+                Reiciendis voluptate architecto deserunt molestias provident aspernatur magnam voluptatum consectetur.
+                Accusantium aut architecto eum veritatis amet nesciunt nihil cupiditate suscipit, minima delectus.
+                Dignissimos qui dolore doloremque vitae nam, voluptatibus adipisci.
+                Eius maiores ipsum illum neque repellendus impedit, fuga et quod alias quaerat hic eveniet porro, nemo
+                itaque quam sed fugit quia perferendis iure corrupti saepe beatae minus? Vero, deserunt doloremque.
+                Amet vel dicta corporis eos culpa veniam blanditiis quam veritatis sint recusandae, aliquam iste
+                accusantium pariatur consequatur inventore necessitatibus reprehenderit ea perferendis quisquam
+                repudiandae possimus explicabo molestiae. Voluptates, est necessitatibus!
+                Quod, qui vel. Cum ducimus distinctio voluptas sed blanditiis exercitationem, deserunt, fugit quia ea
+                corrupti consequuntur in dolorum vero ipsum quasi explicabo doloremque fugiat. Quaerat nisi dicta
+                voluptatem quis obcaecati.
+                Recusandae deleniti laudantium odio, sed saepe assumenda harum. Et dolorem ipsam consequuntur fugiat
+                optio, hic voluptates excepturi! Odio labore facilis error reiciendis, voluptas ex aliquid amet
+                similique qui illo ea!
+            <ul id="inner-list">
+                <li>item</li>
+                <li>item</li>
+                <li>item</li>
+                <li>item</li>
+            </ul>
+            </p>
+        </article>
+        <article class="my-article">
+            <h3>Titolo dell'articolo</h3>
+            <img src="https://picsum.photos/600/450?q=2">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum laudantium ab cupiditate minus architecto
+                doloremque exercitationem eligendi sunt, quia facilis velit ipsum, reprehenderit suscipit maxime
+                voluptas enim tempore, itaque delectus!
+                Reiciendis voluptate architecto deserunt molestias provident aspernatur magnam voluptatum consectetur.
+                Accusantium aut architecto eum veritatis amet nesciunt nihil cupiditate suscipit, minima delectus.
+                Dignissimos qui dolore doloremque vitae nam, voluptatibus adipisci.
+                Eius maiores ipsum illum neque repellendus impedit, fuga et quod alias quaerat hic eveniet porro, nemo
+                itaque quam sed fugit quia perferendis iure corrupti saepe beatae minus? Vero, deserunt doloremque.
+                Amet vel dicta corporis eos culpa veniam blanditiis quam veritatis sint recusandae, aliquam iste
+                accusantium pariatur consequatur inventore necessitatibus reprehenderit ea perferendis quisquam
+                repudiandae possimus explicabo molestiae. Voluptates, est necessitatibus!
+                Quod, qui vel. Cum ducimus distinctio voluptas sed blanditiis exercitationem, deserunt, fugit quia ea
+                corrupti consequuntur in dolorum vero ipsum quasi explicabo doloremque fugiat. Quaerat nisi dicta
+                voluptatem quis obcaecati.
+                Recusandae deleniti laudantium odio, sed saepe assumenda harum. Et dolorem ipsam consequuntur fugiat
+                optio, hic voluptates excepturi! Odio labore facilis error reiciendis, voluptas ex aliquid amet
+                similique qui illo ea!
+                Doloribus quod asperiores id odio inventore. Dolore excepturi inventore, tempore provident facere iure
+                voluptatum aliquid quo doloremque veniam consequatur enim pariatur ad autem, doloribus molestiae
+                dolorum. Praesentium inventore fuga tempora!
+                Excepturi provident, ea adipisci facilis consectetur, sint quod quam facere corporis quis, cum unde
+                atque dolorum neque cupiditate incidunt velit. Explicabo suscipit placeat eveniet itaque porro. Dolorum,
+                dolores! Ipsum, saepe.
+                Alias a porro quia odio fugiat sunt dolorum saepe voluptate officia rerum corrupti, ea laboriosam unde
+                doloremque ab consectetur minus provident, placeat sapiente recusandae obcaecati odit. Illo aut non at?
+                Consequuntur esse, molestiae sequi a, iure quos ab eum nam, exercitationem aliquam veritatis facere
+                aspernatur tempore aliquid ut! Sequi quam maiores consectetur distinctio vero doloremque ullam eligendi
+                omnis blanditiis. Veritatis?
+                Quis quam cumque aspernatur aperiam beatae veniam dignissimos eos quia similique dolore ipsa, est optio
+                harum, quos asperiores reprehenderit quae veritatis voluptatem voluptas a repellat sed. Voluptates
+                veniam molestiae eius.
+                Voluptatem eligendi quos saepe perspiciatis iste veritatis fuga harum impedit! Amet adipisci, voluptas
+                necessitatibus expedita harum quaerat dolorem veniam ea sequi magni itaque praesentium officiis nam,
+                delectus illum ullam voluptate.
+                Vitae, distinctio esse. Alias omnis culpa quo quam officiis cupiditate quos laboriosam quidem dolores
+                numquam. Omnis voluptatum iure molestias consequatur odio minima necessitatibus quisquam architecto
+                recusandae, alias nisi ex quos?
+                Atque incidunt debitis, eaque sapiente voluptatibus nisi distinctio corporis unde temporibus hic
+                repellat harum officiis eos sunt id vero. Dolorem, ipsum? A, molestias sapiente. Rerum porro ut minus
+                fugiat iure?
+            </p>
+        </article>
+        <article class="my-article">
+            <h3>Titolo dell'articolo</h3>
+            <img src="https://picsum.photos/600/450?q=3">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum laudantium ab cupiditate minus architecto
+                doloremque exercitationem eligendi sunt, quia facilis velit ipsum, reprehenderit suscipit maxime
+                voluptas enim tempore, itaque delectus!
+                Reiciendis voluptate architecto deserunt molestias provident aspernatur magnam voluptatum consectetur.
+                Accusantium aut architecto eum veritatis amet nesciunt nihil cupiditate suscipit, minima delectus.
+                Dignissimos qui dolore doloremque vitae nam, voluptatibus adipisci.
+                Eius maiores ipsum illum neque repellendus impedit, fuga et quod alias quaerat hic eveniet porro, nemo
+                itaque quam sed fugit quia perferendis iure corrupti saepe beatae minus? Vero, deserunt doloremque.
+                Amet vel dicta corporis eos culpa veniam blanditiis quam veritatis sint recusandae, aliquam iste
+                accusantium pariatur consequatur inventore necessitatibus reprehenderit ea perferendis quisquam
+                repudiandae possimus explicabo molestiae. Voluptates, est necessitatibus!
+                Quod, qui vel. Cum ducimus distinctio voluptas sed blanditiis exercitationem, deserunt, fugit quia ea
+                corrupti consequuntur in dolorum vero ipsum quasi explicabo doloremque fugiat. Quaerat nisi dicta
+                voluptatem quis obcaecati.
+                Recusandae deleniti laudantium odio, sed saepe assumenda harum. Et dolorem ipsam consequuntur fugiat
+                optio, hic voluptates excepturi! Odio labore facilis error reiciendis, voluptas ex aliquid amet
+                similique qui illo ea!
+                Doloribus quod asperiores id odio inventore. Dolore excepturi inventore, tempore provident facere iure
+                voluptatum aliquid quo doloremque veniam consequatur enim pariatur ad autem, doloribus molestiae
+                dolorum. Praesentium inventore fuga tempora!
+                Excepturi provident, ea adipisci facilis consectetur, sint quod quam facere corporis quis, cum unde
+                atque dolorum neque cupiditate incidunt velit. Explicabo suscipit placeat eveniet itaque porro. Dolorum,
+                dolores! Ipsum, saepe.
+                Alias a porro quia odio fugiat sunt dolorum saepe voluptate officia rerum corrupti, ea laboriosam unde
+                doloremque ab consectetur minus provident, placeat sapiente recusandae obcaecati odit. Illo aut non at?
+                Consequuntur esse, molestiae sequi a, iure quos ab eum nam, exercitationem aliquam veritatis facere
+                aspernatur tempore aliquid ut! Sequi quam maiores consectetur distinctio vero doloremque ullam eligendi
+                omnis blanditiis. Veritatis?
+                Quis quam cumque aspernatur aperiam beatae veniam dignissimos eos quia similique dolore ipsa, est optio
+                harum, quos asperiores reprehenderit quae veritatis voluptatem voluptas a repellat sed. Voluptates
+                veniam molestiae eius.
+                Voluptatem eligendi quos saepe perspiciatis iste veritatis fuga harum impedit! Amet adipisci, voluptas
+                necessitatibus expedita harum quaerat dolorem veniam ea sequi magni itaque praesentium officiis nam,
+                delectus illum ullam voluptate.
+                Vitae, distinctio esse. Alias omnis culpa quo quam officiis cupiditate quos laboriosam quidem dolores
+                numquam. Omnis voluptatum iure molestias consequatur odio minima necessitatibus quisquam architecto
+                recusandae, alias nisi ex quos?
+                Atque incidunt debitis, eaque sapiente voluptatibus nisi distinctio corporis unde temporibus hic
+                repellat harum officiis eos sunt id vero. Dolorem, ipsum? A, molestias sapiente. Rerum porro ut minus
+                fugiat iure?
+            </p>
+        </article>
+
+        <div id="empty-container"></div>
+    </main>
+    <footer>
+        <h5>Epicode 2024 &copy;</h5>
+        <ul>
+            <li>elemento1</li>
+            <li>elemento2</li>
+            <li>elemento3</li>
+            <li>elemento4</li>
+        </ul>
+    </footer>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
